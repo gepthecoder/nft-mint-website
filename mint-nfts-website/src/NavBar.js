@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { Box, Button, Flex, Image, Link, Spacer } from '@chakra-ui/react';
+import FacebookIcon from './assets/social-media-icons/facebook_32x32.png';
+import TwitterIcon from './assets/social-media-icons/twitter_32x32.png';
+import EmailIcon from './assets/social-media-icons/email_32x32.png';
 
 const NavBar = ( {accounts, setAccounts} ) => {
 
@@ -21,12 +25,21 @@ const NavBar = ( {accounts, setAccounts} ) => {
     }
 
     return (
-        <div>
+        <Flex justify="space-between" align="center" padding="30px">
             {/* Left Side - Social Media Icons */}
-            <div>Facebook</div>
-            <div>Twitter</div>
-            <div>Email</div>
-
+            <Flex justify="space-around" width="40%" padding="0 75px">
+                <Link href='https://www.facebook.com'>
+                    <Image src={FacebookIcon} boxSize="42px" margin="0 15px" />
+                </Link>
+            
+                <Link href='https://www.twitter.com'>
+                    <Image src={TwitterIcon} boxSize="42px" margin="0 15px" />
+                </Link>         
+            
+                <Link href='https://www.gmail.com'>
+                    <Image src={EmailIcon} boxSize="42px" margin="0 15px" />
+                </Link>
+            </Flex>
             {/* Right Side - Sections And Connect */}
             <div>About</div>
             <div>Mint</div>
@@ -42,7 +55,7 @@ const NavBar = ( {accounts, setAccounts} ) => {
             )}
 
 
-        </div>
+        </Flex>
     )
 }
 
