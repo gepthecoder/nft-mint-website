@@ -41,10 +41,21 @@ const NavBar = ( {accounts, setAccounts} ) => {
                 </Link>
             </Flex>
             {/* Right Side - Sections And Connect */}
-            <div>About</div>
-            <div>Mint</div>
-            <div>Team</div>
-
+            <Flex
+                justify="space-around"
+                align="center"
+                width="40px"
+                padding="30px 30px 30px 30px"
+            
+            >
+             <Box margin="0 15px">About</Box>
+             <Spacer />
+             <Box margin="0 15px">Mint</Box>
+             <Spacer />
+             <Box margin="0 15px">Team</Box>
+             <Spacer />
+             
+            </Flex>
             {/*Connect Wallet*/}
             {isConnected ? (
                 <div>
