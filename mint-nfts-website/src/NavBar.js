@@ -44,9 +44,8 @@ const NavBar = ( {accounts, setAccounts} ) => {
             <Flex
                 justify="space-around"
                 align="center"
-                width="40px"
-                padding="30px 30px 30px 30px"
-            
+                width="40%"
+                padding="30px"
             >
              <Box margin="0 15px">About</Box>
              <Spacer />
@@ -54,18 +53,28 @@ const NavBar = ( {accounts, setAccounts} ) => {
              <Spacer />
              <Box margin="0 15px">Team</Box>
              <Spacer />
-             
+                {/*Connect Wallet*/}
+                {isConnected ? (
+                    <div>
+                        <Box margin="0 15px">{accounts[0].slice(0,6)}...{accounts[0].slice(39)}</Box>
+                    </div>
+                ) : (
+                    <Button 
+                        backgroundColor="#D6517D"
+                        borderRadius="5px"
+                        boxShadow="0px 2px 2px 1px #0F0F0F"
+                        color="white"
+                        cursor="pointer"
+                        fontFamily="inherit"
+                        padding="15px"
+                        margin="0 15px"
+                        onClick={connectAccount}
+                    >
+                        Connect Wallet
+                    </Button>
+                )}
+
             </Flex>
-            {/*Connect Wallet*/}
-            {isConnected ? (
-                <div>
-                    <b>{accounts[0].slice(0,6)}...{accounts[0].slice(39)}</b>
-                </div>
-            ) : (
-                <button onClick={connectAccount}>Connect Wallet</button>
-            )}
-
-
         </Flex>
     )
 }
