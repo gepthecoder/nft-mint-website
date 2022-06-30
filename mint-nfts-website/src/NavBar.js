@@ -5,12 +5,19 @@ const NavBar = ( {accounts, setAccounts} ) => {
     const isConnected = Boolean(accounts[0]);
 
     async function connectAccount() {
+        const isMetaMask = isMetaMaskInstalled();
+        if(!isMetaMask) { return }
+
         if(window.ethereum) {
             const accounts = await window.ethereum.request({
                 method: "eth_requestAccounts",
             });
             setAccounts(accounts);
         }
+    }
+
+    function isMetaMaskInstalled() {
+        return Boolean(window.ethereum && window.ethereum.isMetaMask);
     }
 
     return (
@@ -27,7 +34,9 @@ const NavBar = ( {accounts, setAccounts} ) => {
 
             {/*Connect Wallet*/}
             {isConnected ? (
-                <p>Connected</p>
+                <div>
+                    <b>{accounts[0].slice(0,6)}...{accounts[0].slice(39)}</b>
+                </div>
             ) : (
                 <button onClick={connectAccount}>Connect Wallet</button>
             )}
