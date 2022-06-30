@@ -29,7 +29,7 @@ const NavBar = ( {accounts, setAccounts} ) => {
             {isConnected ? (
                 <p>Connected</p>
             ) : (
-                <button onClick={connectAccount}></button>
+                <button onClick={connectAccount}>Connect Wallet</button>
             )}
 
 

@@ -32,9 +32,36 @@ const MainMint = ({accounts, setAccounts}) => {
         }
     }
 
-  return (
-    <div>MainMint</div>
-  )
+    const handleDecrement = () => {
+        if(mintAmount <= 1) return;
+
+        setMintAmount(mintAmount - 1);
+    }
+
+    const handleIncrement = () => {
+        if(mintAmount >= 3) return;
+
+        setMintAmount(mintAmount + 1);
+    }
+
+    return (
+        <div>
+            <h1>RoboPunks</h1>
+            <p>It's 2100. Can the RoboPunks NFT save humans from destructive scam NFTs? Mint RoboPunks to find out.</p>
+            {isConnected ? (
+                <div>
+                    <div>
+                        <button onClick={handleDecrement}>-</button>
+                        <input type="number" value={mintAmount} />
+                        <button onClick={handleIncrement}>+</button>
+                    </div>
+                    <button onClick={handleMint}>Mint Now</button>
+                </div>
+            ) : (
+                <p>You must be connected to Mint!</p>
+            )}
+        </div>
+    )
 }
 
 export default MainMint
